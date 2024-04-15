@@ -1,67 +1,22 @@
 
-# Aplicación CRUD de PHP
+NOTA DE SEGURIDAD:
+Esta aplicación es una demostración básica y no implementa medidas avanzadas de seguridad. Es importante tener en cuenta algunas consideraciones adicionales para mejorar la seguridad:
 
-Este repositorio contiene una aplicación PHP CRUD (Create, Read, Update, Delete) simple. Es una demostración básica de cómo integrar PHP con una base de datos MySQL para gestionar datos de usuarios. La aplicación permite a los usuarios agregar, ver, editar y eliminar información de usuario.
+Declaraciones Preparadas (Prepared Statements): En lugar de concatenar directamente los valores de entrada en las consultas SQL, se recomienda el uso de declaraciones preparadas. Las declaraciones preparadas separan los datos de las instrucciones SQL, lo que ayuda a prevenir ataques de inyección SQL al escapar correctamente los caracteres especiales y sanear los datos de entrada. Puedes usar PDO (PHP Data Objects) o mysqli para implementar declaraciones preparadas en PHP.
 
-## Tecnologías Utilizadas
+Validación de Datos del Lado del Servidor: Aunque la validación del lado del cliente puede mejorar la experiencia del usuario al proporcionar retroalimentación instantánea, nunca debes confiar únicamente en ella para la seguridad. Siempre realiza una validación adicional del lado del servidor para garantizar que los datos enviados sean seguros y válidos. Esto puede incluir la verificación de la longitud, el formato y la integridad de los datos antes de procesarlos.
 
-- **PHP:** Lenguaje de script del lado del servidor utilizado para el desarrollo web.
-- **MySQL:** Sistema de gestión de base de datos utilizado para almacenar datos de usuario.
-- **HTML & CSS:** Utilizados para estructurar y dar estilo a las páginas web.
-- **Tailwind CSS:** Un framework de CSS utilitario para el desarrollo rápido de interfaces de usuario.
+Filtrado de Entrada: Filtra y limpia los datos de entrada para eliminar cualquier carácter malicioso o no deseado. Esto puede ayudar a prevenir ataques XSS (Cross-Site Scripting) y otros tipos de vulnerabilidades. Utiliza funciones como filter_input() en PHP o bibliotecas específicas para filtrar entradas de usuario.
 
-## Páginas y Funcionalidades
+Hashing de Contraseñas: Almacena las contraseñas de los usuarios de forma segura utilizando algoritmos de hash robustos como bcrypt o Argon2. Nunca almacenes contraseñas en texto plano o utilizando algoritmos de hash débiles como MD5 o SHA-1.
 
-### 1. Página de Inicio (`display.php`)
+Control de Acceso y Autorización: Implementa un sistema de control de acceso basado en roles para restringir el acceso a ciertas partes de la aplicación según los privilegios del usuario. Asegúrate de que los usuarios solo puedan acceder y modificar la información que les corresponde.
 
-![Página de Inicio](images/display.png)
+Actualizaciones y Parches: Mantén tu aplicación y sus dependencias actualizadas para mitigar cualquier vulnerabilidad conocida. Asegúrate de aplicar parches de seguridad y actualizaciones regulares tanto en el servidor como en el código de la aplicación.
 
-- **Funcionalidad:** Muestra todos los usuarios de la base de datos en un formato de tabla.
-- **Características:** 
-  - Ver todos los usuarios.
-  - Enlaces de navegación para agregar, editar o eliminar información de usuario.
+Siguiendo estas prácticas recomendadas, puedes mejorar significativamente la seguridad de tu aplicación PHP CRUD y protegerla contra diversas amenazas en línea.
 
-### 2. Agregar Usuario (`user.php`)
 
-![Agregar Usuario](images/add.png)
 
-- **Funcionalidad:** Permite agregar un nuevo usuario a la base de datos.
-- **Características:** 
-  - Formulario para ingresar detalles del usuario (nombre, correo electrónico, teléfono móvil, contraseña).
-  - Validación de datos y envío a la base de datos.
 
-### 3. Editar Usuario (`edit.php`)
-
-![Editar Usuario](images/edit.png)
-
-- **Funcionalidad:** Permite editar detalles de usuarios existentes.
-- **Características:** 
-  - Formulario prellenado con la información actual del usuario.
-  - Actualización de detalles del usuario en la base de datos.
-
-### 4. Eliminar Usuario (`delete.php`)
-
-- **Funcionalidad:** Facilita la eliminación de un usuario de la base de datos.
-- **Características:** 
-  - Eliminación de información de usuario basada en el ID de usuario.
-
-## Conexión a la Base de Datos (`connect.php`)
-
-- **Propósito:** Establece una conexión con la base de datos MySQL.
-- **Credenciales:** Utiliza nombre de host, nombre de usuario, contraseña y nombre de la base de datos para la conexión.
-
-## Cómo Ejecutar
-
-1. Clona el repositorio en tu máquina local.
-2. Configura un entorno PHP y MySQL (como XAMPP).
-3. Crea la base de datos usando phpmyadmin.
-4. Ejecuta la aplicación en un servidor local.
-
-## Nota de Seguridad
-
-Esta aplicación es una demostración básica y no implementa medidas avanzadas de seguridad. Es recomendable utilizar declaraciones preparadas (prepared statements) u ORM para las interacciones con la base de datos para prevenir ataques de inyección SQL.
-
----
-
-Siéntete libre de contribuir a este proyecto o sugerir mejoras. Para cualquier consulta o problema, por favor abre un issue en este repositorio.
 
