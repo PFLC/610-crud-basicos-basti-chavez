@@ -1,5 +1,5 @@
 
-Nota de Seguridad
+NOTA DE SEGURIDAD:
 Esta aplicación es una demostración básica y no implementa medidas avanzadas de seguridad. Es importante tener en cuenta algunas consideraciones adicionales para mejorar la seguridad:
 
 Declaraciones Preparadas (Prepared Statements): En lugar de concatenar directamente los valores de entrada en las consultas SQL, se recomienda el uso de declaraciones preparadas. Las declaraciones preparadas separan los datos de las instrucciones SQL, lo que ayuda a prevenir ataques de inyección SQL al escapar correctamente los caracteres especiales y sanear los datos de entrada. Puedes usar PDO (PHP Data Objects) o mysqli para implementar declaraciones preparadas en PHP.
